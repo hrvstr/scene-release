@@ -7,10 +7,11 @@ module.exports = function(name){
   var data = {
     episode: match(name, /s\d+e\d+/i), 
     year: match(name, /(?!^)(?!1080|2160)[1,2]\d{3}/),
+    date: match(name, /\d{4}(\.\d{2}){2}/),
     resolution: match(name, /\d{3,4}p/i),
     type: match(name, /CAM|TS(?!C)|TELESYNC|(DVD|BD)SCR|SCR|DDC|R5[\.\s]LINE|R5|(DVD|HD|BR|BD|WEB)Rip|WEB|DVDR|(HD|PD)TV|((AMZN|HULU)\.)*WEB-DL|WEBDL|BluRay/i),
     video: match(name, /NTSC|PAL|[xh][\.\s]?264/i),
-    audio: match(name, /AAC2[\.\s]0|AAC|AC3|DTS|DD(P*)(\+*)5\.1/i),
+    audio: match(name, /AAC2[\.\s]0|AAC|AC3|DTS|DD\S5\.1/i),
     language: match(name, /MULTiSUBS|MULTi|NORDiC|DANiSH|SWEDiSH|NORWEGiAN|GERMAN|iTALiAN|FRENCH|SPANiSH/i),
     edition: match(name, /UNRATED|DC|(Directors|EXTENDED)[\.\s](CUT|EDITION)|EXTENDED|3D|2D|\bNF\b/i),
     tags: name.match(/COMPLETE|LiMiTED|iNTERNAL/i),
