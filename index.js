@@ -13,7 +13,7 @@ module.exports = function(name){
     source: match(name, /AMZN|HULU|COOK/),
     video: match(name, /NTSC|PAL|[xh][\.\s]?26(4|5)|XVID|HEVC/i),
     audio: match(name, /AAC2[\.\s]0|AAC|AC3|DTS|DD\S*(5|2)\.(1|0)/i),
-    language: match(name, /\.(MULTiSUBS|MULTi|NORDiC|DANiSH|SWEDiSH|NORWEGiAN|GERMAN|iTALiAN|FRENCH|SPANiSH)\./i),
+    language: match(name, /(?!\.)(MULTiSUBS|MULTi|NORDiC|DANiSH|SWEDiSH|NORWEGiAN|GERMAN|iTALiAN|FRENCH|SPANiSH)(?=\.)/i),
     edition: match(name, /UNRATED|DC|(Directors|EXTENDED)[\.\s](CUT|EDITION)|EXTENDED|3D|2D|\bNF\b/i),
     tags: name.match(/COMPLETE|LiMiTED|iNTERNAL/i),
     release: match(name, /REAL[\.\s]PROPER|PROPER|REPACK|READNFO|READ[\.\s]NFO|DiRFiX|NFOFiX/i),
