@@ -5,9 +5,10 @@ var match = require('string-match');
 module.exports = function(name){
   // TODO: split out RegExps for each type(x264, TV, MP3, Games, etc.)
   var data = {
-    year: match(name, /(?!^)[1,2]\d{3}/),
+    episode: match(name, /s\d+e\d+/i), 
+    year: match(name, /(?!^)(?!1080|2160)[1,2]\d{3}/),
     resolution: match(name, /\d{3,4}p/i),
-    type: match(name, /CAM|TS(?!C)|TELESYNC|(DVD|BD)SCR|SCR|DDC|R5[\.\s]LINE|R5|(DVD|HD|BR|BD|WEB)Rip|DVDR|(HD|PD)TV|WEB-DL|WEBDL|BluRay/i),
+    type: match(name, /CAM|TS(?!C)|TELESYNC|(DVD|BD)SCR|SCR|DDC|R5[\.\s]LINE|R5|(DVD|HD|BR|BD|WEB)Rip|WEB|DVDR|(HD|PD)TV|WEB-DL|WEBDL|BluRay/i),
     video: match(name, /NTSC|PAL|[xh][\.\s]?264/i),
     audio: match(name, /AAC2[\.\s]0|AAC|AC3|DTS|DD5[\.\s]1/i),
     language: match(name, /MULTiSUBS|MULTi|NORDiC|DANiSH|SWEDiSH|NORWEGiAN|GERMAN|iTALiAN|FRENCH|SPANiSH/i),
