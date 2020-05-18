@@ -30,6 +30,8 @@
     "string-match": "1.0.0"
   },
   "devDependencies": {
-    "mocha": "2.2.5"
+    "mocha": "2.2.5",
+    "stylelint": "^13.4.0",
+    "stylelint-config-standard": "^20.0.0"
   }
 }
