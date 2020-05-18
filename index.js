@@ -5,14 +5,14 @@ var match = require('string-match');
 module.exports = function(name){
   // TODO: split out RegExps for each type(x264, TV, MP3, Games, etc.)
   var data = {
-    episode: match(name, /s\d+e\d+/i),
+    episode: match(name, /(s\d+e\d+)|(e\d+)/i),
     date: match(name, /\d{4}(\.\d{2}){2}/),
     year: match(name, /(?!^)(?!1080|2160)[1,2]\d{3}/),
     resolution: match(name, /\d{3,4}p/i),
     type: match(name, /WEB-DL|WEBDL|CAM|\.(T|W)S(?!C)|TELESYNC|(DVD|BD)SCR|SCR|DDC|R5[\.\s]LINE|R5|(DVD|HD|BR|BD|WEB)Rip|WEB|DVDR|(HD|PD)TV|BluRay/i),
     source: match(name, /AMZN|HULU|COOK/),
-    video: match(name, /NTSC|PAL|[xh][\.\s]?264|XVID/i),
-    audio: match(name, /AAC2[\.\s]0|AAC|AC3|DTS|DD\S5\.1/i),
+    video: match(name, /NTSC|PAL|[xh][\.\s]?26(4|5)|XVID|HEVC/i),
+    audio: match(name, /AAC2[\.\s]0|AAC|AC3|DTS|DD\S*(5|2)\.(1|0)/i),
     language: match(name, /\.(MULTiSUBS|MULTi|NORDiC|DANiSH|SWEDiSH|NORWEGiAN|GERMAN|iTALiAN|FRENCH|SPANiSH)\./i),
     edition: match(name, /UNRATED|DC|(Directors|EXTENDED)[\.\s](CUT|EDITION)|EXTENDED|3D|2D|\bNF\b/i),
     tags: name.match(/COMPLETE|LiMiTED|iNTERNAL/i),
