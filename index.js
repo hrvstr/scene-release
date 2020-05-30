@@ -9,14 +9,15 @@ module.exports = function(name){
     date: match(name, /\d{4}(\.\d{2}){2}/),
     year: match(name, /(?!^)(?!1080|2160)[1,2]\d{3}/),
     resolution: match(name, /\d{3,4}p/i),
-    type: match(name, /(?<=\.)(CAM|TS(?!C)|TELESYNC|(DVD|BD)SCR|SCR|DDC|R5[\.\s]LINE|R5|(DVD|HD|BR|BD|WEB)Rip|DVDR|(HD|PD)TV|WEB-DL|WEBDL|WEB|BluRay)(?=\.)/i),
+    format: match(name, /HDR10Plus/i),
+    type: match(name, /(?<=\.)(CAM|TS(?!C)|TELESYNC|(DVD|BD)SCR|SCR|DDC|R5[\.\s]LINE|R5|U*HDR*|(DVD|HD(TV)*|BR|BD|WEB)Rip|DVDR|(HD|PD)TV|WEB-DL|WEBDL|WEB|BluRay)(?=\.)/i),
     source: match(name, /(?<=\.)(NETFLIX|AMZN|HULU|COOK|PBS|HMAX|iP|DL)(?=\.)/),
     video: match(name, /(?<=\.)(NTSC|PAL|[xh][\.\s]?26(4|5)|XVID|HEVC|REMUX(\.AVC)?)(?=\.)?/i),
-    audio: match(name, /(?<=\.)(DUBBED|AAC2[\.\s]0|AAC|AC3|DTS(-HD)?|(DD|MA)\S?(5|2)\.(1|0))/i),
+    audio: match(name, /(?<=\.)(DUBBED|AAC2[\.\s]0|AAC|AC3D*|DTS(-HD)?|(DD|MA)\S?(5|2)\.(1|0))/i),
     language: match(name, /(?<=\.)(MULTiSUBS|MULTi|NORDiC|DANiSH|SWEDiSH|NORWEGiAN|GERMAN|iTALiAN|FRENCH|SPANiSH)(?=\.)/i),
-    edition: match(name, /(?<=\.)(UNRATED|DC|(Directors|EXTENDED)[\.\s](CUT|EDITION)|EXTENDED|REMASTERED|3D|2D|\bNF\b)(?=\.)/i),
-    tags: match(name, /COMPLETE|LiMiTED|iNTERNAL|DOKU|DOCU/i),
-    release: match(name, /REAL[\.\s]PROPER|PROPER|REPACK|READNFO|READ[\.\s]NFO|DiRFiX|NFOFiX/i),
+    edition: match(name, /(?<=\.)(UN(RATED|CUT)|DC|(Directors|EXTENDED)[\.\s](CUT|EDITION)|EXTENDED|REMASTERED|3D|2D|\bNF\b)(?=\.)/i),
+    tags: match(name, /COMPLETE|LiMiTED|iNTERNAL|DOKU|DOCU|REAL/i),
+    release: match(name, /REAL[\.\s]PROPER|PROPER|REPACK|READNFO|READ[\.\s]NFO|DiRFiX|NFOFiX|RERiP/i),
     group: match(name, /[A-Za-z0-9]+$/)
   };
 
