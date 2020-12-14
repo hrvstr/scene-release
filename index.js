@@ -5,7 +5,7 @@ var match = require('string-match');
 module.exports = function(name){
   // TODO: split out RegExps for each type(x264, TV, MP3, Games, etc.)
   var data = {
-    episode: match(name, /(s\d{2,}e\d{2,})|(e\d{2,})|(s\d{2,})/i), // plz simplify regex
+    episode: match(name, /(s\d{2,}e\d{2,})|(e\d{2,})|(s\d{2,})|(part\.\d+)/i), // plz simplify regex
     date: match(name, /\d{4}(\.\d{2}){2}/),
     year: match(name, /(?!^)(?!1080|2160)[1,2]\d{3}/),
     resolution: match(name, /\d{3,4}p/i),
@@ -13,7 +13,7 @@ module.exports = function(name){
     type: match(name, /(?<=\.)(CAM|TS(?!C)|TELESYNC|(DVD|BD)SCR|SCR|DDC|R5[\.\s]LINE|R5|(DVD|HD(TV)*|BR|BD|WEB)Rip|DVDR|(HD|PD)TV|WEB-DL|WEBDL|WEB|BluRay)(?=\.)/i),
     source: match(name, /(?<=\.)(NETFLIX|AMZN|HULU|COOK|PBS|HMAX|iP|DL)(?=\.)/),
     video: match(name, /(?<=\.)(NTSC|PAL|[xh][\.\s]?26(4|5)|XVID|HEVC|REMUX(\.AVC)?)(?=\.)?/i),
-    audio: match(name, /(?<=\.)(DUBBED|AAC2[\.\s]0|AAC|AC3D*|DTS(-HD)?|(DD|MA)\S?(5|2)\.(1|0))/i),
+    audio: match(name, /(?<=\.)(DUBBED|AAC2[\.\s]0|AAC|AC3(D|.Dubbed)*|DTS(-HD)?|(DD|MA)\S?(5|2)\.(1|0))/i),
     language: match(name, /(?<=\.)(MULTiSUBS|MULTi|NORDiC|DANiSH|SWEDiSH|NORWEGiAN|GERMAN|iTALiAN|FRENCH|SPANiSH)(?=\.)/i),
     edition: match(name, /(?<=\.)(U*HDR*|UN(RATED|CUT)|DC|(Directors|EXTENDED)[\.\s](CUT|EDITION)|EXTENDED|REMASTERED|3D|2D|\bNF\b)(?=\.)/i),
     tags: match(name, /COMPLETE|LiMiTED|iNTERNAL|DOKU|DOCU|REAL/i),
